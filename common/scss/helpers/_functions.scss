@@ -1,0 +1,15 @@
+@function get-img($site: '') {
+	@if $site == '' {
+		@return '//img.siwonschool.com/#{$lang}';
+	} @else {
+		@return '//img.siwonschool.com/#{$site}';
+	}
+}
+
+@function get-cdn($site: '') {
+	@if $site == '' {
+		@return '//siwon-cdn.siwonschool.com/#{$lang}';
+	} @else {
+		@return '//siwon-cdn.siwonschool.com/#{$site}';
+	}
+}

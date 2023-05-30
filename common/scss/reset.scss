@@ -1,0 +1,179 @@
+@charset 'UTF-8';
+
+// Reset CSS v2.0.7
+// @author https://www.siwonschool.com
+
+html, body, main, header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption, a, ul, ol, dl, dt, dd,
+h1, h2, h3, h4, h5, h6, button, input, optgroup, select, textarea, p, address, caption, em, var, i, code, kbd, samp, pre, small, big, img, iframe, video, object, embed, button, select, input, textarea, table {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: normal;
+	border: 0;
+}
+
+body {
+	font-family: 'Malgun Gothic', sans-serif;
+	font-size: 1em;
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+main, header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	vertical-align: baseline;
+}
+
+small {
+	font-size: 80%;
+}
+
+code, kbd, samp, pre {
+	font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'monospace', sans-serif;
+	font-size: 85%;
+}
+
+sub,
+sup {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+ul, ol, dl {
+	list-style: none;
+}
+
+img {
+	height: auto;
+}
+
+img, iframe, video, object, embed, button, select, input, textarea {
+	vertical-align: middle;
+}
+
+img {
+	vertical-align: top;
+}
+
+button {
+	background-color: transparent;
+}
+
+input,
+button {
+	overflow: visible;
+}
+
+button,
+select {
+	cursor: pointer;
+	text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+	margin: 0;
+	box-shadow: none;
+	border-radius: 0;
+	letter-spacing: inherit;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		margin: 0;
+		padding: 0;
+		bottom: 0;
+	}
+}
+
+input[type='text'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='submit'],
+textarea {
+	-webkit-appearance: none;
+	border-radius: 0;
+	resize: none;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	padding: 0;
+}
+
+input[type='search'] {
+	-webkit-appearance: textfield;
+	border-radius: 0;
+
+	&::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+	overflow: visible;
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+[hidden] {
+	display: none;
+}
+
+.clear {
+	display: block;
+	width: 100%;
+	clear: both;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.blind, .screen_out, .sr-only, .screen-reader-text, .ir, legend, caption {
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	border: 0;
+	word-wrap: normal !important;
+}

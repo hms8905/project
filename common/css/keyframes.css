@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+/*
+	네이밍 규칙_yujin 22.10.07
+	: 공통 애니메이션 추가 생성시 앞에 "sjw_" 를 붙여주세요.
+*/
+
+/* 깜빡 깜빡 */
+@keyframes sjw_blink {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+/* 배경 왼쪽으로 흐르는 */
+@keyframes sjw_bgflow {
+	0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	100% { -webkit-transform: translate3d(-70em, 0, 0); transform: translate3d(-100em, 0, 0); }
+}
+
+/* 배경 오른쪽으로 흐르는 */
+@keyframes sjw_bgflow_right {
+	0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	100% { -webkit-transform: translate3d(70em, 0, 0); transform: translate3d(100em, 0, 0); }
+}
+
+/* 둥둥 떠있는 */
+@keyframes sjw_float {
+	0% { transform: translatey(0px); }
+	50% { transform: translatey(-10px); }
+	100% { transform: translatey(0px); }
+}
+
+/* 왼쪽에서 슬라이드 Fade-in */
+@keyframes sjw_fadein_left {
+	0% { transform: translateX(-50px); opacity: 0; }
+	100% { transform: translateX(0); opacity: 1; }
+}
+
+/* 오른쪽에서 슬라이드 Fade-in */
+@keyframes sjw_fadein_right {
+	0% { transform: translateX(50px); opacity: 0; }
+	100% { transform: translateX(0); opacity: 1; }
+}
+
+/* 아래서 슬라이드 Fade-in */
+@keyframes sjw_fadein_bottom {
+	0% { transform: translateY(200px); opacity: 0; }
+	100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 아래서 슬라이드 Fade-in */
+@keyframes sjw_fadein_top {
+	0% { transform: translateY(-200px); opacity: 0; }
+	100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 좌우 까딱 까딱 */
+@keyframes sjw_zigzag {
+	0% { transform: rotate(5deg); }
+	49% { transform: rotate(5deg); }
+	50% { transform: rotate(-3deg); }
+	100% { transform: rotate(-3deg); }
+}
+
+/* 서서히 등장 */
+@keyframes sjw_opc {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+/* 작아졌다가 확대 */
+@keyframes sjw_scale {
+	0% { transform: scale(0); opacity: 1; }
+	100% { transform: scale(1); opacity: 1; }
+}

@@ -1,0 +1,100 @@
+// Flex
+@mixin flex( $align: '' ) {
+	display: flex;
+
+	@if #{$align} == '' {
+		align-items: center;
+	} @else if #{$align} == 'wrap' {
+		flex-wrap: wrap;
+	} @else if #{$align} == 'center' {
+		justify-content: center;
+		align-items: center;
+	} @else if #{$align} == 'between' {
+		justify-content: space-between;
+		align-items: center;
+	} @else if #{$align} == 'column' {
+		flex-direction: column;
+	}
+}
+
+// Ellipsis (...말줄임 처리)
+@mixin ellipsis( $line: '', $num: 2, $lineHeight: 1.6, $boxHeight: auto ) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	@if #{$line} == '' {
+		display: block;
+		white-space: nowrap;
+	} @else if #{$line} == 'lines' {
+		display: -webkit-box;
+		word-break: break-word;
+		-webkit-line-clamp: #{$num};
+		-webkit-box-orient: vertical;
+	}
+
+	@if ($boxHeight) == 'fixed' {
+		height: ( $lineHeight * $num ) + em;
+		line-height: $lineHeight;
+	} @else if ( $boxHeight ) == 'auto' {
+		max-height: ( $lineHeight * $num ) + em ;
+		height: auto;
+		line-height: $lineHeight;
+	}
+}
+
+// Font
+@mixin font( $weight: 400, $size: 15px, $color: #000, $align: '' ) {
+	font-weight: #{$weight};
+	font-size: #{$size};
+	color: #{$color};
+
+	@if #{$align} == '' {
+		text-align: left;
+	} @else if #{$align} == 'center' {
+		text-align: center;
+	} @else if #{$align} == 'right' {
+		text-align: right;
+	}
+}
+
+@mixin box-sizing {
+	& {
+		box-sizing: border-box;
+
+		&::before,
+		&::after {
+			box-sizing: border-box;
+		}
+
+		* {
+			box-sizing: border-box;
+
+			&::before,
+			&::after {
+				box-sizing: border-box;
+			}
+		}
+	}
+}
+
+@mixin blind {
+	display: inline-block;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	left: -100vw;
+	color: transparent;
+}
+
+@mixin disable($boolean: true) {
+	@if $boolean == true {
+		user-select: none;
+		pointer-events: none;
+		touch-action: none;
+	} @else {
+		user-select: auto;
+		pointer-events: auto;
+		touch-action: auto;
+	}
+}

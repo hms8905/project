@@ -1,0 +1,10 @@
+$lang: 'project';
+$mainColor: #3fb8ee;
+$mainColorLite: lighten($mainColor,10%);
+$mainColorDark: darken($mainColor,10%);
+$subColor: #ff971c;
+$pointColor: $mainColor;
+$pointBlueColor : #3fb8ee;
+$redColor: #f83845;
+
+$cdn: 'images/' + $lang;

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    #airplane {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('airplane.png');
+      background-size: contain;
+      transform-origin: center center;
+      transition: transform 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="airplane"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 비행기 요소를 가져옵니다.
+      var airplane = document.getElementById('airplane');
+
+      // 컨테이너 요소를 가져옵니다.
+      var container = document.getElementById('container');
+
+      // 비행기의 초기 위치를 설정합니다.
+      var airplaneX = 0;
+      var airplaneY = 0;
+
+      // 비행기를 마우스 움직임에 따라 이동시키는 함수입니다.
+      function moveAirplane(event) {
+        // 마우스의 현재 위치를 가져옵니다.
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        // 컨테이너의 위치를 기준으로 비행기의 위치를 설정합니다.
+        var containerOffset = container.getBoundingClientRect();
+        var airplaneX = mouseX - containerOffset.left;
+        var airplaneY = mouseY - containerOffset.top;
+
+        // 비행기의 위치를 설정합니다.
+        airplane.style.left = airplaneX - airplane.offsetWidth / 2 + 'px';
+        airplane.style.top = airplaneY - airplane.offsetHeight / 2 + 'px';
+
+        // 비행기의 각도를 계산합니다.
+        var deltaX = mouseX - airplaneX;
+        var deltaY = mouseY - airplaneY;
+        var angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+        // 비행기의 방향을 마우스의 방향으로 설정합니다.
+        airplane.style.transform = 'translate(-50%, -50%) rotate(' + angle + 'deg)';
+      }
+
+      // 마우스 움직임 이벤트에 moveAirplane 함수를 연결합니다.
+      container.addEventListener('mousemove', moveAirplane);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+.sec_tit_comm {
+    font-weight: 400;
+    font-size: 64px;
+    color: #000;
+    line-height: 1.25;
+
+    .desc {
+        display: block;
+        padding-bottom: 28px;
+        font-size: 32px;
+    }
+
+    strong {
+        font-weight: 800;
+    }
+
+    span {
+        color: #F69242;
+    }
+}
