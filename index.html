@@ -158,9 +158,9 @@
 							<div class="swiper-wrapper">
 
 								<div class="swiper-slide">
-									<button onclick="playYoutubeComm('OqH1k1N3PTE');">
+									<a href="javascript:;" onclick="playYoutubeComm('OqH1k1N3PTE');">
 										<img src="https://i1.ytimg.com/vi/OqH1k1N3PTE/maxresdefault.jpg" alt="">	
-									</button>
+									</a>
 									<p class="txt">
 										<b>왕초보탈출 1탄</b>
 										터키어배우기 어렵지 않아요! 안녕하세요 감사합니다 말해보기
@@ -168,9 +168,9 @@
 								</div>
 
 								<div class="swiper-slide">
-									<button onclick="playYoutubeComm('xFpKmJlnJoM');">
+									<a href="javascript:;" onclick="playYoutubeComm('xFpKmJlnJoM');">
 										<img src="https://i1.ytimg.com/vi/xFpKmJlnJoM/maxresdefault.jpg" alt="">		
-									</button>
+									</a>
 									<p class="txt">
 										<b>왕초보탈출 1탄</b>
 										현지에서 바로 써먹을 수 있는 예문으로
@@ -178,9 +178,9 @@
 								</div>
 
 								<div class="swiper-slide">
-									<button onclick="playYoutubeComm('gwy4oAydtlM');">
+									<a href="javascript:;" onclick="playYoutubeComm('gwy4oAydtlM');">
 										<img src="https://i1.ytimg.com/vi/gwy4oAydtlM/maxresdefault.jpg" alt="">		
-									</button>
+									</a>
 									<p class="txt">
 										<b>왕초보탈출 2탄</b>
 										다양한 주제로 터키식 표현 익히기
@@ -189,53 +189,59 @@
 
 							</div>
 						</div>
-
 						<button class="prev"><img src="images/project/prev.svg" alt="이전"></button>
 						<button class="next"><img src="images/project/next.svg" alt="다음"></button>
 					</div>
 				</div>
-			
-
-
 			</article>
 
-			<article class="sec_map">
+			<article class="sec_map sec_map_trigger">
 				<div class="w1920">
+					<div class="sec_tit_comm">
+						<img src="images/project/sec_map_tit.svg" alt="">
+						<p>튀르키예어로 <strong>일상을 풍부하게.</strong></p>
+					</div>
 					<img src="images/project/sec_map.png" alt="">
-
+					<ul>
+						<li><img src="images/project/sec_map_photo1.png" alt=""></li>
+						<li><img src="images/project/sec_map_photo2.png" alt=""></li>
+						<li><img src="images/project/sec_map_photo3.png" alt=""></li>
+						<li><img src="images/project/sec_map_photo4.png" alt=""></li>
+					</ul>
 				</div>
 				<div id="airplane"></div>
 			</article>
 
+			<article class="sec_career sec_career_trigger">
+				<div class="inner">
+					<p class="sec_tit_comm">
+						튀르키예어는 <br>
+						<strong>저만 믿고 따라오세요!</strong>
+					</p>
+					<div class="tit">
+						<b>이은아 선생님</b>
+						시원스쿨 튀르키예어 대표강사
+					</div>
+					<div class="txt">
+						<b>경력</b>
+						현) 시원스쿨 튀르키예어 대표강사 <br>
+						현) 튀르키예어 다수 기업 번역 활동 <br>
+						현) 튀르키예어 개인 교습 경험 다수 <br>
+						전) 강남 World in Seoul 어학원 튀르키예어 출강
+						<button onclick="playYoutubeComm('zGQDHuhAKoY');"><img src="https://i1.ytimg.com/vi/zGQDHuhAKoY/mqdefault.jpg" alt=""></button>
+						<!--
+						maxresdefault.jpg (1280x720)
+						sddefault.jpg (640x480)
+						hqdefault.jpg (480x360)
+						mqdefault.jpg (320x180)
+						default.jpg (120x90)
+						-->
+					</div>
+				</div>
+				<img src="images/project/sec_career_tch.png" alt="" class="tch">
+			</article>
+
+
 		</section>
 	</body>
-
-<script>
-/*
-let visaul_tween_scroll = TweenMax.to(".js-scroll-down", .5, {
-    alpha: 0
-})
-  , visual_tween_bg = TweenMax.to(".js-visual-back", .8, {
-    alpha: 0
-})
-  , visual_tween_main = (new TimelineMax).to(".js-visual-content", 1, {
-    alpha: 0,
-    delay: .4,
-    scale: .7
-});
-
-let visualScene = new ScrollMagic.Scene({
-    triggerHook: 0,
-    duration: "115%"
-}).setTween([visual_tween_bg, visual_tween_main])
-  , visualCont = document.querySelector("#visual")
-  , visualPinScene = new ScrollMagic.Scene({
-    triggerHook: 0,
-    duration: "80%"
-}).setPin(visualCont).on("end", function(e) {
-    visualCont.classList.add("fixed")
-})
-*/
-</script>
-
 </html>

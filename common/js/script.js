@@ -159,6 +159,8 @@ const script = {
 
 			fn.visual(controller);
 			fn.needs(controller);
+			fn.map(controller);
+			fn.career(controller);
 		},
 		visual: (controller) => {
 
@@ -223,7 +225,23 @@ const script = {
 			})
 			.setClassToggle('.sec_needs','active')
 			.addTo(controller);
-		}
+		},
+		map: (controller) => {
+			var scene = new ScrollMagic.Scene({
+				triggerElement: '.sec_map_trigger', // trigger the animation when this element appears on screen
+				triggerHook: "0.5",
+			})
+			.setClassToggle('.sec_map','active')
+			.addTo(controller);
+		},
+		career: (controller) => {
+			var scene = new ScrollMagic.Scene({
+				triggerElement: '.sec_career_trigger', // trigger the animation when this element appears on screen
+				triggerHook: "0.5",
+			})
+			.setClassToggle('.sec_career','active')
+			.addTo(controller);
+		},
 	},
 	rolling: (obj,time = 1300) => {
 		var num = 0;
