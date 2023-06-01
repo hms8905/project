@@ -17,4 +17,12 @@
     span {
         color: #F69242;
     }
+
+    &.white {
+        color: #fff;
+
+        span {
+            color: #000;
+        }
+    }
 }

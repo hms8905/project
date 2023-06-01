@@ -19,7 +19,6 @@ $(() => {
 		},
 	});
 
-	
 });
 
 /* 유튜브 영상재생(공통) */
@@ -161,6 +160,8 @@ const script = {
 			fn.needs(controller);
 			fn.map(controller);
 			fn.career(controller);
+			fn.review(controller);
+			fn.count(controller);
 		},
 		visual: (controller) => {
 
@@ -241,6 +242,73 @@ const script = {
 			})
 			.setClassToggle('.sec_career','active')
 			.addTo(controller);
+		},
+		review: (controller) => { 
+
+			var Scene = new ScrollMagic.Scene({
+				triggerElement: ".sec_review_trigger",
+				triggerHook: "0.5",
+				duration: $('.sec_review .content-container').height(),
+			})
+			.on('progress', function (e) {
+				if ( e.progress >= 0 && e.progress < '0.40' ){
+					$('.sec_review .content-container .left-content li').eq(0).addClass('on').siblings().removeClass('on');
+				}else if ( e.progress > '0.33' && e.progress <= '0.75' ) {
+					$('.sec_review .content-container .left-content li').eq(1).addClass('on').siblings().removeClass('on');
+				}else if ( e.progress > '0.66' && e.progress <= 1 ){
+					$('.sec_review .content-container .left-content li').eq(2).addClass('on').siblings().removeClass('on');
+				}
+			})
+			.addTo(controller);
+			
+			var scene1 = new ScrollMagic.Scene({
+				triggerElement: '.sec_career_trigger1', // trigger the animation when this element appears on screen
+				triggerHook: "0.5",
+			})
+			.setClassToggle('.sec_career_trigger1','on')
+			.addTo(controller);
+			
+			var scene2 = new ScrollMagic.Scene({
+				triggerElement: '.sec_career_trigger2', // trigger the animation when this element appears on screen
+				triggerHook: "0.5",
+			})
+			.setClassToggle('.sec_career_trigger2','on')
+				.addTo(controller);
+			
+			var scene3 = new ScrollMagic.Scene({
+				triggerElement: '.sec_career_trigger3', // trigger the animation when this element appears on screen
+				triggerHook: "0.5",
+			})
+			.setClassToggle('.sec_career_trigger3','on')
+			.addTo(controller);
+		},
+		count: (controller) => { 
+			// 첫 번째 타임라인을 ScrollMagic에 추가
+			var scene = new ScrollMagic.Scene({
+				triggerElement: '.sec_count_trigger', // trigger the animation when this element appears on screen
+				triggerHook: "onLeave",
+				duration: 800 // the animation duration
+			})
+			.setPin(".sec_count")
+			.addTo(controller)
+			.on('progress', function (e) {
+				$('.amount').html(Math.round(e.progress * 180));
+
+				if ( e.progress >= 0 && e.progress < '0.20' ){
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg1.png')");
+				}else if ( e.progress > '0.20' && e.progress <= '0.35' ) {
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg2.png')");
+				}else if ( e.progress > '0.35' && e.progress <= '0.55' ) {
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg3.png')");
+				}else if ( e.progress > '0.55' && e.progress <= '0.70' ){
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg4.png')");
+				}else if ( e.progress > '0.70' && e.progress <= '0.85' ){
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg5.png')");
+				}else if ( e.progress > '0.85' && e.progress <= 1 ){
+					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg6.png')");
+				}
+			
+			})
 		},
 	},
 	rolling: (obj,time = 1300) => {

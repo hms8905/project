@@ -574,4 +574,165 @@
 			}
 		}
 	}
+
+	&_review {
+		padding: 140px 0;
+		background: #F69242;
+
+		.content-container {
+			display: flex;
+			justify-content: center;
+			width: 1320px;
+			margin: 67px auto 0 auto;
+			padding-left: 100px;
+
+			.left-content {
+				width: 440px;
+				margin-right: 68px;
+
+				ul {
+					position: sticky;
+					top: calc( 50% - 235px );
+					left: 0;
+					width: 440px;
+					height: 470px;
+
+					li {
+						position: absolute;
+						left: 0;
+						top: 0;
+						opacity: 0;
+						transition: all 0.3s;
+						transform: scaleX(0);
+
+						&.on {
+							opacity: 1;
+							transform: scaleX(1);
+						}
+					}
+				}
+			}
+
+			.right-content {
+				flex: 1;
+				@include font(400,28px,#fff);
+				line-height: 1.6;
+
+				li {
+					padding: 0 5px;
+
+					+ li {
+						margin-top: 200px;
+					}
+
+					span {
+						display: inline-block;
+						position: relative;
+
+						i {
+							position: relative;
+							z-index: 2;
+						}
+
+						&::before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: -5px;
+							z-index: 1;
+							width: 0;
+							height: 90%;
+							background: #000;
+							color: #fff;
+							transform: translateY(-50%);
+							transition: all 0.6s;
+						}
+					}
+
+					&.on {
+						span::before {
+							width: calc( 100% + 10px );
+						}
+					}
+
+					em {
+						display: block;
+						margin-top: 22px;
+						@include font(400,24px,#000);
+						line-height: 1.3;
+					}
+				}
+			}
+		}
+
+
+
+	}
+
+	&_count {
+		background: #000 no-repeat 50% 50% / cover;
+		background-image: 
+			url('../../images/project/sec_count_bg1.png'),
+			url('../../images/project/sec_count_bg2.png'),
+			url('../../images/project/sec_count_bg3.png'),
+			url('../../images/project/sec_count_bg4.png'),
+			url('../../images/project/sec_count_bg5.png'),
+			url('../../images/project/sec_count_bg6.png')
+		;
+
+		p {
+			width: 100vw;
+			height: 100vh;
+			@include flex(center);
+			flex-direction: column;
+			@include font(300,64px,#fff,center);
+			line-height: 1.375;
+
+			b {
+				margin-top: 19px;
+				font-weight: 800;
+				font-size: 148px;
+				line-height: 1.08;
+			}
+		}
+	}
+
+	&_apply {
+		position: relative;
+		padding: 130px 0;
+		background: #fff;
+
+		.box {
+			position: relative;
+			width: 850px;
+			margin: 57px auto 0 auto;
+
+			button {
+				position: absolute;
+				top: 427px;
+				left: 50%;
+				width: 560px;
+				height: 100px;
+				margin-left: -280px;
+			}
+		}
+
+		.balloon-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			@include disable();
+
+			.balloon {
+				position: absolute;
+				top: 65px;
+				left: 50%;
+				width: 329px;
+				margin-left: 330px;
+			}
+		}
+		
+	}
 }
