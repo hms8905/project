@@ -19,6 +19,10 @@ $(() => {
 		},
 	});
 
+	setInterval(function () { 
+		$('.blink').toggleClass('on');
+	},500)
+
 });
 
 /* 유튜브 영상재생(공통) */
@@ -253,7 +257,7 @@ const script = {
 			.on('progress', function (e) {
 				if ( e.progress >= 0 && e.progress < '0.40' ){
 					$('.sec_review .content-container .left-content li').eq(0).addClass('on').siblings().removeClass('on');
-				}else if ( e.progress > '0.33' && e.progress <= '0.75' ) {
+				}else if ( e.progress > '0.40' && e.progress <= '0.66' ) {
 					$('.sec_review .content-container .left-content li').eq(1).addClass('on').siblings().removeClass('on');
 				}else if ( e.progress > '0.66' && e.progress <= 1 ){
 					$('.sec_review .content-container .left-content li').eq(2).addClass('on').siblings().removeClass('on');
