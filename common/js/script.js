@@ -122,7 +122,6 @@ const script = {
 		fn.scrollMagic.init();
 		fn.rolling('.sec_step .card');
 		fn.airplane();
-		//parallax.scroll.init();
 	},
 	mouse: ( container = '.parallax-container', gab = 30 ) => {
 
@@ -194,7 +193,7 @@ const script = {
 
 			// 두 번째 타임라인을 ScrollMagic에 추가
 			var scene2 = new ScrollMagic.Scene({
-				triggerElement: '.sec_visual_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_visual_trigger',
 				triggerHook: "onLeave",
 				duration: 800 // the animation duration
 			})
@@ -209,7 +208,7 @@ const script = {
 			timeline2.to(".sec_visual .sec_visual_step_end p", 1, { opacity: 0 });
 
 			var scene1 = new ScrollMagic.Scene({
-				triggerElement: '.sec_needs_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_needs_trigger',
 				triggerHook: "onEnter",
 				duration: 1000 // the animation duration
 			})
@@ -217,7 +216,7 @@ const script = {
 			.addTo(controller);
 
 			var scene2 = new ScrollMagic.Scene({
-				triggerElement: '.sec_needs_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_needs_trigger',
 				triggerHook: "onEnter",
 				duration: 1000 // the animation duration
 			})
@@ -225,7 +224,7 @@ const script = {
 			.addTo(controller);
 			
 			var scene3 = new ScrollMagic.Scene({
-				triggerElement: '.sec_needs_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_needs_trigger',
 				triggerHook: "0.5",
 			})
 			.setClassToggle('.sec_needs','active')
@@ -233,7 +232,7 @@ const script = {
 		},
 		map: (controller) => {
 			var scene = new ScrollMagic.Scene({
-				triggerElement: '.sec_map_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_map_trigger',
 				triggerHook: "0.5",
 			})
 			.setClassToggle('.sec_map','active')
@@ -241,55 +240,64 @@ const script = {
 		},
 		career: (controller) => {
 			var scene = new ScrollMagic.Scene({
-				triggerElement: '.sec_career_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_career_trigger',
 				triggerHook: "0.5",
 			})
 			.setClassToggle('.sec_career','active')
 			.addTo(controller);
 		},
-		review: (controller) => { 
-
+		review: (controller) => {
+			let el = $('.sec_review .content-container .left-content li'),
+				cnt = el.length;//3
+			
 			var Scene = new ScrollMagic.Scene({
 				triggerElement: ".sec_review_trigger",
 				triggerHook: "0.5",
 				duration: $('.sec_review .content-container').height(),
 			})
 			.on('progress', function (e) {
-				if ( e.progress >= 0 && e.progress < '0.40' ){
-					$('.sec_review .content-container .left-content li').eq(0).addClass('on').siblings().removeClass('on');
-				}else if ( e.progress > '0.40' && e.progress <= '0.66' ) {
-					$('.sec_review .content-container .left-content li').eq(1).addClass('on').siblings().removeClass('on');
-				}else if ( e.progress > '0.66' && e.progress <= 1 ){
-					$('.sec_review .content-container .left-content li').eq(2).addClass('on').siblings().removeClass('on');
-				}
+				el.each(function (idx) {
+					if ( e.progress >= 1 / cnt * idx && e.progress <= (1 / cnt) * idx+1 )
+						el.eq(idx).addClass('on').siblings().removeClass('on');
+				})
 			})
 			.addTo(controller);
 			
 			var scene1 = new ScrollMagic.Scene({
-				triggerElement: '.sec_career_trigger1', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_career_trigger1',
 				triggerHook: "0.5",
 			})
-			.setClassToggle('.sec_career_trigger1','on')
+			.setClassToggle('.sec_career_trigger1', 'on')
 			.addTo(controller);
 			
 			var scene2 = new ScrollMagic.Scene({
-				triggerElement: '.sec_career_trigger2', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_career_trigger2',
 				triggerHook: "0.5",
 			})
-			.setClassToggle('.sec_career_trigger2','on')
-				.addTo(controller);
+			.setClassToggle('.sec_career_trigger2', 'on')
+			.addTo(controller);
 			
 			var scene3 = new ScrollMagic.Scene({
-				triggerElement: '.sec_career_trigger3', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_career_trigger3',
 				triggerHook: "0.5",
 			})
-			.setClassToggle('.sec_career_trigger3','on')
+			.setClassToggle('.sec_career_trigger3', 'on')
 			.addTo(controller);
 		},
 		count: (controller) => { 
+			let arr = [
+					'sec_count_bg1.png',
+					'sec_count_bg2.png',
+					'sec_count_bg3.png',
+					'sec_count_bg4.png',
+					'sec_count_bg5.png',
+					'sec_count_bg6.png'
+				],
+				cnt = arr.length;
+			
 			// 첫 번째 타임라인을 ScrollMagic에 추가
 			var scene = new ScrollMagic.Scene({
-				triggerElement: '.sec_count_trigger', // trigger the animation when this element appears on screen
+				triggerElement: '.sec_count_trigger',
 				triggerHook: "onLeave",
 				duration: 800 // the animation duration
 			})
@@ -297,21 +305,10 @@ const script = {
 			.addTo(controller)
 			.on('progress', function (e) {
 				$('.amount').html(Math.round(e.progress * 180));
-
-				if ( e.progress >= 0 && e.progress < '0.20' ){
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg1.png')");
-				}else if ( e.progress > '0.20' && e.progress <= '0.35' ) {
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg2.png')");
-				}else if ( e.progress > '0.35' && e.progress <= '0.55' ) {
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg3.png')");
-				}else if ( e.progress > '0.55' && e.progress <= '0.70' ){
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg4.png')");
-				}else if ( e.progress > '0.70' && e.progress <= '0.85' ){
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg5.png')");
-				}else if ( e.progress > '0.85' && e.progress <= 1 ){
-					$('.sec_count').attr("style","background-image:url('images/project/sec_count_bg6.png')");
-				}
-			
+				$.each(arr, function (idx, key) {
+					if (e.progress >= 1 / cnt * idx && e.progress <= (1 / cnt) * idx + 1)
+						$('.sec_count').attr("style", "background-image:url('images/project/" + key + "')");	
+				})
 			})
 		},
 	},
@@ -373,32 +370,4 @@ const script = {
 			$('#airplane').attr('style', '');
 		})
 	},
-	/*
-	scroll: {
-		init: function(){
-			//this.bg();
-		},
-		bg: () => {
-
-			const	parallax = $('.parallax-scroll'),
-					stopScrollAt = $('.parallax-scroll-end').offset().top; // 중지할 스크롤 위치 (예: 500px)
-
-			let scrolled = $(window).scrollTop();
-
-			$(window).on('scroll', function() {
-				const scrollTop = $(window).scrollTop();
-				const scrollDelta = scrollTop - scrolled;
-				scrolled = scrollTop;
-
-				if (scrollTop >= stopScrollAt) {
-					parallax.css('transform', `translate3d(0, ${-stopScrollAt}px, 0)`);
-					return;
-				}
-
-				parallax.css('transform', `translate3d(0, ${-scrollTop}px, 0)`);
-			});
-
-		}
-	}
-	*/
 }
