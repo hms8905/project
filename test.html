@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="common/css/reset.min.css">
+	<script src="common/lib/jquery-3.5.1.min.js"></script>
+<style>
+.parallax-mouse-cont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+.parallax-mouse-elm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-position: center center;
+	background-size: cover;
+	touch-action: none;
+	user-select: none;
+	pointer-events: none;
+	transition: all 0.3s;
+}
+
+.parallax-mouse-elm img {
+	width: 200px;
+}
+
+.asdf {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+	
+
+	<div class="parallax-mouse-cont" id="qqq">
+		<div class="parallax-mouse-elm" style="background-image: url('images/project/sec_visual_bg.png');"></div>
+		<div class="asdf">
+		wekfj lwkjflwk ej
+		</div>
+	</div>
+
+	<div class="parallax-mouse-cont" id="aaa">
+		<div class="parallax-mouse-elm">
+			<img class="balloon" src="images/project/sec_vlsual_balloon.png" alt="">
+		</div>
+	</div>
+
+</body>
+
+<script>
+$(()=>{
+	script.parallaxMouse('#qqq');
+	script.parallaxMouse('#aaa',1);
+});
+
+let script = {
+	parallaxMouse: ( container = '.parallax-mouse-cont', scale = 1.05 ) => {
+
+		$(container).each(function(idx,el){
+			let elm = $(el).children('.parallax-mouse-elm');
+
+				$(document).on('mousemove', el, function (e) {
+
+					if ( scale !== 1 ) {
+
+					}else{
+						
+					}
+
+
+					let	mouseX = e.offsetX,
+						mouseY = e.offsetY,
+						xMAx = ( $(el).innerWidth() * scale - $(el).innerWidth() ) / 2,
+						yMAx = ( $(el).innerHeight() * scale - $(el).innerHeight() ) / 2,
+						x = ( $(el).innerWidth() / 2 - mouseX ) / ( $(el).innerWidth() / 2 ) * -1 * xMAx,
+						y = ( $(el).innerHeight() / 2 - mouseY ) / ( $(el).innerHeight() / 2 ) * -1 * yMAx;
+
+					elm.css('transform', `translate(${x}px, ${y}px) scale(${scale})`);
+
+
+
+
+				});
+
+				$(document).on('mouseleave', el, function (e) {
+					elm.css('transform', `translate(0px, 0px) scale(${scale}`);
+				})
+
+
+
+			/*
+				$(document).on('mousemove', el, function (e) {
+					let	mouseX = e.offsetX,
+						mouseY = e.offsetY,
+						xMAx = ( $(el).innerWidth() * 1.02 - $(el).innerWidth() ) / 2,
+						yMAx = ( $(el).innerHeight() * 1.02 - $(el).innerHeight() ) / 2,
+						x = ( $(el).innerWidth() / 2 - mouseX ) / ( $(el).innerWidth() / 2 ) * -1 * xMAx,
+						y = ( $(el).innerHeight() / 2 - mouseY ) / ( $(el).innerHeight() / 2 ) * -1 * yMAx;
+
+					elm.css('transform', `translate(${x}px, ${y}px)`);
+				});
+
+				$(document).on('mouseleave', el, function (e) {
+					elm.css('transform', `translate(0px, 0px)`);
+				})
+			*/
+		})
+	},
+}
+</script>
+
+</html>
+
